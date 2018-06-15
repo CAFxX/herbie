@@ -245,6 +245,7 @@
 
 ; Logarithms
 (define-ruleset log-distribute (exponents simplify)
+  [log-add      (log (+ a b))       (+ (log a) (log (+ 1 (/ b a))))]
   [log-prod     (log (* a b))       (+ (log a) (log b))]
   [log-div      (log (/ a b))       (- (log a) (log b))]
   [log-rec      (log (/ 1 a))       (- (log a))]
