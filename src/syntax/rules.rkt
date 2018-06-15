@@ -226,6 +226,7 @@
 (define-ruleset pow-transform (exponents)
   [pow-exp          (pow (exp a) b)             (exp (* a b))]
   [pow-to-exp       (pow a b)                   (exp (* (log a) b))]
+  [pow-log-switch   (pow x (log y))             (pow y (log x))]
   [pow-prod-up      (* (pow a b) (pow a c))     (pow a (+ b c))]
   [pow-prod-down    (* (pow b a) (pow c a))     (pow (* b c) a)]
   [pow-pow          (pow (pow a b) c)           (pow a (* b c))]
