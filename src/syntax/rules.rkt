@@ -323,7 +323,11 @@
   [diff-atan   (- (atan x) (atan y))  (atan2 (- x y) (+ 1 (* x y)))]
   [sum-atan    (+ (atan x) (atan y))  (atan2 (+ x y) (- 1 (* x y)))]
   [tan-quot    (tan x)                (/ (sin x) (cos x))]
-  [quot-tan    (/ (sin x) (cos x))    (tan x)])
+  [quot-tan    (/ (sin x) (cos x))    (tan x)]
+  [sin-cos-lc  (+ (* a (sin x)) (* b (cos x)))       
+               (+ (sqrt (+ (sqr a) (sqr b))) (sin (+ x (atan2 b a))))]
+  [sin-sin-lc  (+ (* a (sin x)) (* b (sin (+ x c)))) 
+               (+ (sqrt (+ (+ (sqr a) (sqr b)) (* (* a b) (* 2 (cos c))))) (sin (+ x (atan2 (* b (sin c)) (+ a (* b (cos c)))))))])
 
 (define-ruleset atrig-expand (trigonometry)
   [sin-asin    (sin (asin x))         x]
