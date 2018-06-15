@@ -383,7 +383,11 @@
   [tan-hang-p  (tan (/ (+ a b) 2))
                (/ (+ (sin a) (sin b)) (+ (cos a) (cos b)))]
   [tan-hang-m  (tan (/ (- a b) 2))
-               (/ (- (sin a) (sin b)) (+ (cos a) (cos b)))])
+               (/ (- (sin a) (sin b)) (+ (cos a) (cos b)))]
+  [sin-cos-lc  (+ (* a (sin x)) (* b (cos x)))       
+               (+ (sqrt (+ (sqr a) (sqr b))) (sin (+ x (atan2 b a))))]
+  [sin-sin-lc  (+ (* a (sin x)) (* b (sin (+ x c)))) 
+               (+ (sqrt (+ (+ (sqr a) (sqr b)) (* (* a b) (* 2 (cos c))))) (sin (+ x (atan2 (* b (sin c)) (+ a (* b (cos c)))))))])
 
 (define-ruleset trig-expand-fp-safe (trignometry fp-safe)
   [sqr-sin     (* (sin x) (sin x))       (- 1 (* (cos x) (cos x)))]
