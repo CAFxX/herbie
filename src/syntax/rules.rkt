@@ -101,8 +101,11 @@
 (define-ruleset id-transform (arithmetic)
   [sub-neg           (- a b)               (+ a (- b))]
   [unsub-neg         (+ a (- b))           (- a b)]
-  [neg-sub0          (- b)                 (- 0 b)]
-  [*-un-lft-identity a                     (* 1 a)]
+  [neg-sub0          (- a)                 (- 0 a)]
+  [+-identity        a                     (+ a 0)]
+  [--identity        a                     (- a 0)]
+  [*-identity        a                     (* a 1)]
+  [/-identity        a                     (/ a 1)]
   [div-inv           (/ a b)               (* a (/ 1 b))]
   [un-div-inv        (* a (/ 1 b))         (/ a b)]
   [neg-mul-1         (- a)                 (* -1 a)]
