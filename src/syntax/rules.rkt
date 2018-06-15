@@ -177,7 +177,8 @@
   [sqrt-div          (sqrt (/ x y))         (/ (sqrt x) (sqrt y))]
   [sqrt-unprod       (* (sqrt x) (sqrt y))  (sqrt (* x y))]
   [sqrt-undiv        (/ (sqrt x) (sqrt y))  (sqrt (/ x y))]
-  [add-sqr-sqrt      x                      (* (sqrt x) (sqrt x))])
+  [add-sqr-sqrt      x                      (* (sqrt x) (sqrt x))]
+  [abs-sqrt-sqr      (abs x)                (sqrt (* x x))])
 
 ; Cube root
 (define-ruleset cubes-reduce (arithmetic simplify)
