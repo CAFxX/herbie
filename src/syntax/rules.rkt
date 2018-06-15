@@ -140,7 +140,8 @@
   [div-inv           (/ a b)               (* a (/ 1 b))]
   [un-div-inv        (* a (/ 1 b))         (/ a b)]
   [neg-mul-1         (- a)                 (* -1 a)]
-  [clear-num         (/ a b)               (/ 1 (/ b a))])
+  [clear-num         (/ a b)               (/ 1 (/ b a))]
+  [factor-out        (+ a b)               (* a (+ 1 (/ b a)))])
 
 ; Difference of cubes
 (define-ruleset difference-of-cubes (polynomials)
@@ -480,6 +481,8 @@
   [hypot-1-def (sqrt (+ 1 (* y y)))       (hypot 1 y)]
   [fma-def     (+ (* x y) z)              (fma x y z)]
   [fma-neg     (- (* x y) z)              (fma x y (- z))]
+  [fma-inv     (+ (/ x y) z)              (fma x (/ 1 y) z)]
+  [fma-inv-neg (- (/ x y) z)              (fma x (/ 1 y) (- z))]
   [fma-udef    (fma x y z)                (+ (* x y) z)])
 
 (define-ruleset special-numerical-expand (numerics)
