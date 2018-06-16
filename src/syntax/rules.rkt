@@ -196,7 +196,7 @@
   [cbrt-unprod       (* (cbrt x) (cbrt y))    (cbrt (* x y))]
   [cbrt-undiv        (/ (cbrt x) (cbrt y))    (cbrt (/ x y))]
   [add-cube-cbrt     x                        (* (* (cbrt x) (cbrt x)) (cbrt x))]
-  [add-cbrt-cube     x                        (cbrt (* (* x x) x))])
+  [add-cbrt-cube     x                        (cbrt (* x (* x x)))])
 
 (define-ruleset cubes-canonicalize (arithmetic simplify)
   [cube-unmult       (* x (* x x))          (pow x 3)])
